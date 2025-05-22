@@ -1,1 +1,20 @@
-<p>order works!</p>
+<div class="content">
+  <div class="left-content">
+    <h2 class="title">Desserts</h2>
+
+    <div class="grid">
+      @for (dessert of desserts; track dessert.id) {
+      <div class="grid-item">
+        <img [src]="dessert.image.desktop" class="dessert-image" />
+        <h5 class="dessert-category">{{ dessert.category }}</h5>
+        <h3 class="dessert-name">{{ dessert.name }}</h3>
+        <h4 class="dessert-price">
+          {{ dessert.price | currency : "CAD" : "symbol" : "1.2" }}
+        </h4>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="right-content"></div>
+</div>

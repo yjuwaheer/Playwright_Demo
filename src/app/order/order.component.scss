@@ -1,0 +1,40 @@
+.content {
+  .left-content {
+    .title {
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1000px;
+
+      .grid-item {
+        display: flex;
+        flex-direction: column;
+
+        .dessert-image {
+          width: 300px;
+          margin-bottom: 5px;
+          border-radius: 10px;
+        }
+
+        .dessert-category {
+          color: hsl(7, 20%, 60%);
+        }
+
+        .dessert-name {
+          color: hsl(14, 65%, 9%);
+        }
+
+        .dessert-price {
+          color: hsl(14, 86%, 42%);
+        }
+      }
+    }
+  }
+
+  .right-content {
+  }
+}
