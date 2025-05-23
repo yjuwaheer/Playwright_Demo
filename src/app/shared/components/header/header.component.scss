@@ -1,7 +1,7 @@
 nav {
   display: flex;
   align-items: center;
-  background: hsl(13, 31%, 94%);
+  background: var(--rose-100);
 
   a {
     padding: 15px 25px;
@@ -10,7 +10,7 @@ nav {
     letter-spacing: 1px;
 
     &.active {
-      background: hsl(14, 25%, 72%);
+      background: var(--rose-300);
       font-weight: 700;
     }
   }

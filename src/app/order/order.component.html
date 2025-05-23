@@ -5,7 +5,10 @@
     <div class="grid">
       @for (dessert of desserts; track dessert.id) {
       <div class="grid-item">
-        <img [src]="dessert.image.desktop" class="dessert-image" />
+        <div class="dessert-image-container">
+          <img [src]="dessert.image.desktop" class="dessert-image" />
+          <button class="add-cart-button"><i class="bx bx-cart-plus"></i><span>Add to Cart</span></button>
+        </div>
         <h5 class="dessert-category">{{ dessert.category }}</h5>
         <h3 class="dessert-name">{{ dessert.name }}</h3>
         <h4 class="dessert-price">

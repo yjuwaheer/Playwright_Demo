@@ -14,22 +14,52 @@
         display: flex;
         flex-direction: column;
 
-        .dessert-image {
-          width: 300px;
-          margin-bottom: 5px;
-          border-radius: 10px;
+        .dessert-image-container {
+          position: relative;
+
+          .dessert-image {
+            width: 300px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+          }
+
+          .add-cart-button {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 75%;
+            bottom: 10px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: 1px solid var(--rose-900);
+            cursor: pointer;
+
+            i {
+              color: var(--red);
+              font-size: 1.2rem;
+              margin-right: 10px;
+            }
+            
+            span {
+              font-family: 'Poppins';
+              font-weight: 600;
+            }
+          }
         }
 
         .dessert-category {
-          color: hsl(7, 20%, 60%);
+          color: var(--rose-300);
         }
 
         .dessert-name {
-          color: hsl(14, 65%, 9%);
+          color: var(--rose-900);
         }
 
         .dessert-price {
-          color: hsl(14, 86%, 42%);
+          color: var(--red);
         }
       }
     }
