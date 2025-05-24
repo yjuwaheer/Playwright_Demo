@@ -1,7 +1,8 @@
 .content {
   background-color: white;
   padding: 30px;
-  border-radius: 30px;
+  border-radius: 10px;
+  min-width: 550px;
 
   .row {
     display: flex;
@@ -19,11 +20,12 @@
       gap: 20px;
 
       .radio-field {
+        width: 50%;
         border: 1px solid black;
         border-radius: 5px;
         padding: 5px 10px;
 
-        input {
+        input[type="radio"] {
           margin-right: 10px;
         }
       }
@@ -32,14 +34,61 @@
     &.row-5 {
       flex-direction: row;
 
-      input {
+      input[type="checkbox"] {
         margin-right: 10px;
+
+        + label {
+          margin-bottom: 0px;
+        }
       }
     }
 
     .field {
       display: flex;
       flex-direction: column;
+      width: 50%;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: rgb(122, 122, 122);
+
+      span {
+        font-size: 1rem;
+        color: var(--red);
+      }
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid black;
+    }
+
+    textarea {
+      padding: 10px;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid black;
+      resize: none;
+    }
+  }
+
+  #submit {
+    width: 100%;
+    font-family: "Poppins";
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 50px;
+    background: var(--red);
+    color: white;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.9;
     }
   }
 }
