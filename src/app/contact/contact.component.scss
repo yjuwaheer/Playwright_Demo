@@ -1,0 +1,45 @@
+.content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 30px;
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+
+    &.row-1 {
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    .row-3 {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+
+      .radio-field {
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 5px 10px;
+
+        input {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    &.row-5 {
+      flex-direction: row;
+
+      input {
+        margin-right: 10px;
+      }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
