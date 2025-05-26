@@ -1,31 +1,43 @@
-<div class="content">
+<div class="content" [formGroup]="contactForm">
   <h2 class="title">Contact Us</h2>
 
   <div class="row row-1">
     <div class="field">
       <label>First Name <span>*</span></label>
-      <input type="text" />
+      <input type="text" formControlName="firstName" />
     </div>
     <div class="field">
       <label>Last Name <span>*</span></label>
-      <input type="text" />
+      <input type="text" formControlName="lastName" />
     </div>
   </div>
 
   <div class="row">
     <label>Email Address <span>*</span></label>
-    <input type="text" />
+    <input type="text" formControlName="email" />
   </div>
 
   <div class="row">
     <label>Query Type <span>*</span></label>
     <div class="row-3">
       <div class="radio-field">
-        <input type="radio" id="general-inquiry" value="General Inquiry" />
+        <input
+          type="radio"
+          id="general-inquiry"
+          value="General Inquiry"
+          formControlName="inquiryType"
+          [value]="'general'"
+        />
         <label for="general-inquiry">General Inquiry</label>
       </div>
       <div class="radio-field">
-        <input type="radio" id="support-request" value="Support Request" />
+        <input
+          type="radio"
+          id="support-request"
+          value="Support Request"
+          formControlName="inquiryType"
+          [value]="'support'"
+        />
         <label for="support-request">Support Request</label>
       </div>
     </div>
@@ -33,13 +45,26 @@
 
   <div class="row">
     <label>Message <span>*</span></label>
-    <textarea rows="5"></textarea>
+    <textarea rows="5" formControlName="message"></textarea>
   </div>
 
   <div class="row row-5">
-    <input type="checkbox" id="consent" />
-    <label for="consent">I consent to being contacted by the team <span>*</span></label>
+    <input type="checkbox" id="consent" formControlName="consent" />
+    <label for="consent"
+      >I consent to being contacted by the team <span>*</span></label
+    >
   </div>
 
-  <button id="submit">Submit</button>
+  <button id="submit" (click)="onSubmit()">Submit</button>
 </div>
+
+@if (showSuccessMessage) {
+<div class="message success-message">
+  Thank you! Your message was successfully submitted.
+</div>
+
+} @if (showErrorMessage) {
+<div class="message error-message">
+  Please make sure all fields are filled/selected.
+</div>
+}

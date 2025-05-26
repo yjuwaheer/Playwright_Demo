@@ -92,3 +92,20 @@
     }
   }
 }
+
+.message {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  margin-top: 20px;
+
+  &.success-message {
+    background: var(--green);
+  }
+
+  &.error-message {
+    background: var(--yellow);
+  }
+}
