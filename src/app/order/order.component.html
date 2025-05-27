@@ -7,7 +7,25 @@
       <div class="grid-item">
         <div class="dessert-image-container">
           <img [src]="dessert.image.desktop" class="dessert-image" />
-          <button class="add-cart-button"><i class="bx bx-cart-plus"></i><span>Add to Cart</span></button>
+          @if (!getItemInCart(dessert.id)) {
+          <button class="add-cart-button" (click)="addToCart(dessert.id)">
+            <i class="bx bx-cart-plus"></i>
+            <span>Add to Cart</span>
+          </button>
+          } @else {
+          <button class="multi-cart-button">
+            <i
+              class="bx bx-minus-circle"
+              (click)="removeFromCart(dessert.id)"
+            ></i>
+            <span>{{
+              getItemInCart(dessert.id)
+                ? getItemInCart(dessert.id)?.quantity
+                : 0
+            }}</span>
+            <i class="bx bx-plus-circle" (click)="addToCart(dessert.id)"></i>
+          </button>
+          }
         </div>
         <h5 class="dessert-category">{{ dessert.category }}</h5>
         <h3 class="dessert-name">{{ dessert.name }}</h3>
@@ -19,5 +37,13 @@
     </div>
   </div>
 
-  <div class="right-content"></div>
+  <div class="right-content">
+    <h2 class="cart-title">Your Cart (0)</h2>
+
+    <img
+      [src]="'./assets/images/illustration-empty-cart.svg'"
+      class="empty-cart-image"
+    />
+    <p class="empty-cart-text">Your added items will appear here</p>
+  </div>
 </div>
