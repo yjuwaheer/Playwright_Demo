@@ -90,5 +90,11 @@
 
     <button id="confirm-order" (click)="onConfirmOrder()">Confirm Order</button>
     }
+
+    @if (showConfirmMessage) {
+    <div class="message success-message">
+      Thank you! Your order has been placed.
+    </div>
+    }
   </div>
 </div>

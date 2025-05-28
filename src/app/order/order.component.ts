@@ -14,6 +14,7 @@ export class OrderComponent {
     itemId: number;
     quantity: number;
   }[] = [];
+  showConfirmMessage = false;
 
   getItemInfo(selectedItemId: number) {
     return this.desserts.find((item) => item.id === selectedItemId);
@@ -72,5 +73,11 @@ export class OrderComponent {
     this.cart = this.cart.filter((item) => item.itemId !== selectedItemId);
   }
 
-  onConfirmOrder() {}
+  onConfirmOrder() {
+    this.showConfirmMessage = true;
+    this.cart = [];
+    setTimeout(() => {
+      this.showConfirmMessage = false;
+    }, 3000);
+  }
 }

@@ -58,12 +58,15 @@
   <button id="submit" (click)="onSubmit()">Submit</button>
 </div>
 
+<!-- Success message -->
 @if (showSuccessMessage) {
 <div class="message success-message">
   Thank you! Your message was successfully submitted.
 </div>
+}
 
-} @if (showErrorMessage) {
+<!-- Error message -->
+@if (showErrorMessage) {
 <div class="message error-message">
   Please make sure all fields are filled/selected.
 </div>
