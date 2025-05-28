@@ -125,5 +125,68 @@
       color: var(--rose-500);
       text-align: center;
     }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--rose-100);
+
+      .cart-item-left {
+        .cart-item-name {
+          color: var(--rose-900);
+        }
+
+        h4 {
+          .cart-item-quantity {
+            color: var(--red);
+            margin-right: 5px;
+          }
+
+          .cart-item-price {
+            color: var(--rose-300);
+            margin-right: 5px;
+          }
+
+          .cart-item-total {
+            color: var(--rose-500);
+          }
+        }
+      }
+
+      .cart-item-right .cart-item-delete {
+        font-size: 1.5rem;
+        color: var(--rose-300);
+        cursor: pointer;
+      }
+    }
+
+    .cart-total-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+
+      .cart-total {
+        color: var(--rose-900);
+      }
+    }
+
+    #confirm-order {
+      width: 100%;
+      font-family: "Poppins";
+      font-weight: 600;
+      padding: 15px 30px;
+      border-radius: 50px;
+      background: var(--red);
+      color: white;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.9;
+      }
+    }
   }
 }

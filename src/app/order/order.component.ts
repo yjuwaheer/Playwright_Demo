@@ -8,32 +8,69 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss',
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent {
   desserts = data;
   cart: {
     itemId: number;
     quantity: number;
   }[] = [];
 
-  ngOnInit() {}
+  getItemInfo(selectedItemId: number) {
+    return this.desserts.find((item) => item.id === selectedItemId);
+  }
 
   getItemInCart(selectedItemId: number) {
-    return this.cart.find(item => item.itemId === selectedItemId);
+    return this.cart.find((item) => item.itemId === selectedItemId);
+  }
+
+  getTotalItemsInCart() {
+    let totalNumberOfItems = 0;
+
+    this.cart.forEach((item) => {
+      totalNumberOfItems += item.quantity;
+    });
+
+    return totalNumberOfItems;
+  }
+
+  getCartTotal() {
+    let total = 0;
+
+    this.cart.forEach((item) => {
+      total += item.quantity * this.getItemInfo(item.itemId)!.price;
+    });
+
+    return total;
   }
 
   addToCart(selectedItemId: number) {
-    const itemInCart = this.cart.find(item => item.itemId === selectedItemId);
+    const itemInCart = this.cart.find((item) => item.itemId === selectedItemId);
+
     if (!itemInCart) {
       this.cart.push({
         itemId: selectedItemId,
-        quantity: 1
-      })
+        quantity: 1,
+      });
     } else {
       itemInCart.quantity += 1;
     }
   }
 
   removeFromCart(selectedItemId: number) {
-    console.log(selectedItemId);
+    const itemInCart = this.cart.find(
+      (item) => item.itemId === selectedItemId
+    )!;
+
+    if (itemInCart.quantity === 1) {
+      this.cart = this.cart.filter((item) => item.itemId !== selectedItemId);
+    } else {
+      itemInCart.quantity -= 1;
+    }
   }
+
+  removeCompletelyFromCart(selectedItemId: number) {
+    this.cart = this.cart.filter((item) => item.itemId !== selectedItemId);
+  }
+
+  onConfirmOrder() {}
 }

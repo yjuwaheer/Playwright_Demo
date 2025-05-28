@@ -38,12 +38,57 @@
   </div>
 
   <div class="right-content">
-    <h2 class="cart-title">Your Cart (0)</h2>
+    <h2 class="cart-title">Your Cart ({{ getTotalItemsInCart() }})</h2>
 
+    @if (cart.length === 0) {
     <img
       [src]="'./assets/images/illustration-empty-cart.svg'"
       class="empty-cart-image"
     />
     <p class="empty-cart-text">Your added items will appear here</p>
+    }
+
+    <!-- If cart not empty -->
+    @if (cart.length > 0) {
+    <!-- Loop through desserts in cart -->
+    @for (dessert of cart; track dessert.itemId) {
+    <div class="cart-item">
+      <div class="cart-item-left">
+        <h4 class="cart-item-name">{{ getItemInfo(dessert.itemId)!.name }}</h4>
+
+        <h4>
+          <span class="cart-item-quantity">{{ dessert.quantity }}x</span>
+          <span class="cart-item-price"
+            >&#64;
+            {{
+              getItemInfo(dessert.itemId)?.price
+                | currency : "CAD" : "symbol" : "1.2"
+            }}</span
+          >
+          <span class="cart-item-total">{{
+            dessert.quantity * getItemInfo(dessert.itemId)!.price
+              | currency : "CAD" : "symbol" : "1.2"
+          }}</span>
+        </h4>
+      </div>
+
+      <div class="cart-item-right">
+        <i
+          class="bx bx-x-circle cart-item-delete"
+          (click)="removeCompletelyFromCart(dessert.itemId)"
+        ></i>
+      </div>
+    </div>
+    }
+
+    <div class="cart-total-container">
+      <h4>Total</h4>
+      <h1 class="cart-total">
+        {{ getCartTotal() | currency : "CAD" : "symbol" : "1.2" }}
+      </h1>
+    </div>
+
+    <button id="confirm-order" (click)="onConfirmOrder()">Confirm Order</button>
+    }
   </div>
 </div>
